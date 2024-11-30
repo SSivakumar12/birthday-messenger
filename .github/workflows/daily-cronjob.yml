@@ -10,6 +10,10 @@ jobs:
   run-app-script:
     runs-on: ubuntu-latest
 
+  env:
+      BIRTHDAY_TOKEN: ${{ secrets.BIRTHDAY_TOKEN }}
+      ANNIVERSIRY_TOKEN: ${{ secrets.ANNIVERSIRY_TOKEN }}
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     steps:
       # Step 1: Checkout repository
       - name: Checkout Code

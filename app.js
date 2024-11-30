@@ -14,7 +14,6 @@ function main() {
     Object.entries(endpoint_dict).map(mapping => {
         let key = mapping[0];
         const [endpoint, token] = mapping[1];
-        console.log(key, endpoint, token);
         getData(endpoint, token)
             .then(data => {
                 console.log(`number of records pulled in: ${data.length}`);
