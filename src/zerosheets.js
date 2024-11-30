@@ -7,5 +7,6 @@ export async function getData(url, token) {
         }
     });
     const data = await response.json();
+    console.log(data);
     return data;
 }
