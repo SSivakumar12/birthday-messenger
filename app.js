@@ -6,7 +6,7 @@ import { reformat_time } from './src/pre-process-data.js';
 
 const endpoint_dict = {
     birthday: ["https://api.zerosheets.com/v1/il8", process.env.BIRTHDAY_TOKEN],
-    // anniversary: ["https://api.zerosheets.com/v1/byj", process.env.ANNIVERSIRY_TOKEN]
+    anniversary: ["https://api.zerosheets.com/v1/byj", process.env.ANNIVERSIRY_TOKEN]
 };
 
 function main() {
@@ -17,7 +17,6 @@ function main() {
         getData(endpoint, token)
             .then(data => {
                 console.log(`number of records pulled in: ${data.length}`);
-                console.log(data);
                 console.log(`data has been pulled in. beginning checks for any ${key} today`);
                 //iterate through the data and identify and matching birthdays to today
                 let counter = 0;

@@ -1,0 +1,30 @@
+name: Daily Cron Job for App.js
+
+on:
+  schedule:
+    # Runs daily at midnight (UTC)
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allows manual trigger of the workflow
+
+jobs:
+  run-app-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Specify your desired Node.js version
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Run the app script
+      - name: Execute app.js
+        run: node app.js
