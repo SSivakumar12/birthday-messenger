@@ -22,7 +22,7 @@ function main() {
                 let counter = 0;
                 for (const entry of data) {
                     if (reformat_time(entry) == true) {
-                        sendMessage(entry, process.env.DISCORD_WEBHOOK);
+                        sendMessage(entry, process.env.DISCORD_WEBHOOK, key);
                         counter ++;
                     };
                 };

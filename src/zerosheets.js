@@ -1,5 +1,6 @@
 
 export async function getData(url, token) {
+    // code lifted from zerosheet api docs.
     const response = await fetch(url.toString(), {
         method: "GET",
         headers: {
@@ -7,6 +8,5 @@ export async function getData(url, token) {
         }
     });
     const data = await response.json();
-    console.log(data);
     return data;
 }

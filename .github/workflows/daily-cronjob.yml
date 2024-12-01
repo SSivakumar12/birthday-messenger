@@ -1,10 +1,9 @@
-name: Daily Cron Job for App.js
+name: Daily Script to check special days
 
 on:
   schedule:
     # Runs daily at midnight (UTC)
     - cron: "0 0 * * *"
-  workflow_dispatch: # Allows manual trigger of the workflow
 
 jobs:
   run-app-script:
@@ -16,20 +15,16 @@ jobs:
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
     
     steps:
-      # Step 1: Checkout repository
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Specify your desired Node.js version
+          node-version: '18' # replicating node version locally
 
-      # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
 
-      # Step 4: Run the app script
-      - name: Execute app.js
+      - name: Run special day checks
         run: node app.js

@@ -2,7 +2,6 @@ export function reformat_time(entry) {
     // parses string and compares with current day to see if today is a special day
     // if so returns true otherwise it returns false
     const regex = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-    console.log('reformat_time func call',entry);
     if (regex.test(entry['Date'])) {
         let dates = entry["Date"].split("/");
         let day = dates[1];
